@@ -2,11 +2,31 @@ package com.finna.be.octo.avenger.core.db.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "COMMENTS")
 public class DBComment implements IDBComment {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
+	
+	@Column(name = "CONTENT")
 	private String content;
+	
+	@Column(name = "TIMESTAMP")
 	private Timestamp timestamp;
+	
+	@OneToOne
+	@JoinColumn(name = "AUTHOR_ID")
 	private IDBUser author;
 	
 	public long getId() {
