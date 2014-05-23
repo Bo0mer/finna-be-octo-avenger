@@ -1,4 +1,4 @@
-package com.finna.be.octo.avenger.core.model;
+package com.finna.be.octo.avenger.core.db.model;
 
 import java.sql.Timestamp;
 
