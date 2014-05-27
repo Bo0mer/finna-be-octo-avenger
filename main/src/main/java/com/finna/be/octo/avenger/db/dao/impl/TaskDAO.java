@@ -6,9 +6,7 @@ import com.finna.be.octo.avenger.core.db.model.DBTask;
 public class TaskDAO extends BasicDAO implements ITaskDAO {
 
 	public long createTask(DBTask task) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(task);
-		entityManager.getTransaction().commit();
+		persistObject(task);
 		return task.getId();
 	}
 

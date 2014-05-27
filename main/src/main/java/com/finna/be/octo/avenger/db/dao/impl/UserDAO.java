@@ -6,9 +6,7 @@ import com.finna.be.octo.avenger.core.db.model.DBUser;
 public class UserDAO extends BasicDAO implements IUserDAO {
 
 	public long addUser(DBUser user) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(user);
-		entityManager.getTransaction().commit();
+		persistObject(user);
 		return user.getId();
 	}
 

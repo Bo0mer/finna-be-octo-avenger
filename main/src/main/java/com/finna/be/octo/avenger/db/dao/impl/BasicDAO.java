@@ -14,4 +14,10 @@ public abstract class BasicDAO {
 						.createEntityManager();
 	}
 	
+	protected void persistObject(Object object) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(object);
+		entityManager.getTransaction().commit();
+	}
+	
 }
