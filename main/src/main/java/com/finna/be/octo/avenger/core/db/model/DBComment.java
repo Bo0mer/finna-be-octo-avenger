@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "COMMENTS")
-public class DBComment implements IDBComment {
+public class DBComment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
@@ -27,7 +27,7 @@ public class DBComment implements IDBComment {
 	
 	@OneToOne
 	@JoinColumn(name = "AUTHOR_ID")
-	private IDBUser author;
+	private DBUser author;
 	
 	public long getId() {
 		return id;
@@ -53,11 +53,11 @@ public class DBComment implements IDBComment {
 		this.timestamp = timestamp;
 	}
 
-	public IDBUser getAuthor() {
+	public DBUser getAuthor() {
 		return author;
 	}
 	
-	public void setAuthor(IDBUser author) {
+	public void setAuthor(DBUser author) {
 		this.author = author;
 	}
 

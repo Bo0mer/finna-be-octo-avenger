@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity(name = "USERS")
-public class DBUser implements IDBUser {
+public class DBUser {
 
 	@Id
 	private long id;
@@ -25,7 +25,7 @@ public class DBUser implements IDBUser {
 	
 	@OneToMany
 	@JoinColumn(name = "USER_ID", referencedColumnName = "ID")
-	private List<IDBComment> comments;
+	private List<DBComment> comments;
 	
 	public long getId() {
 		return id;
@@ -43,7 +43,7 @@ public class DBUser implements IDBUser {
 		this.username = username;
 	}
 	
-	public void setComments(List<IDBComment> comments) {
+	public void setComments(List<DBComment> comments) {
 		this.comments = comments;
 	}
 
@@ -63,7 +63,7 @@ public class DBUser implements IDBUser {
 		this.email = email;
 	}
 	
-	public List<IDBComment> getComments() {
+	public List<DBComment> getComments() {
 		return comments;
 	}
 

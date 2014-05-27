@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity(name = "TASKS")
-public class DBTask implements IDBTask {
+public class DBTask  {
 
 	@Id
 	private long id;
@@ -23,11 +23,11 @@ public class DBTask implements IDBTask {
 	
 	@OneToOne
 	@JoinColumn(name = "USER_ID")
-	private IDBUser user;
+	private DBUser user;
 	
 	@OneToMany
 	@JoinColumn(name = "TASK_ID", referencedColumnName = "ID")
-	private List<IDBComment> comments;
+	private List<DBComment> comments;
 
 	public long getId() {
 		return id;
@@ -53,19 +53,19 @@ public class DBTask implements IDBTask {
 		this.description = description;
 	}
 
-	public IDBUser getUser() {
+	public DBUser getUser() {
 		return user;
 	}
 	
-	public void setUser(IDBUser user) {
+	public void setUser(DBUser user) {
 		this.user = user;
 	}
 
-	public List<IDBComment> getComments() {
+	public List<DBComment> getComments() {
 		return comments;
 	}
 	
-	public void setComments(List<IDBComment> comments) {
+	public void setComments(List<DBComment> comments) {
 		this.comments = comments;
 	}
 
