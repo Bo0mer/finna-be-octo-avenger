@@ -1,4 +1,4 @@
-package com.finna.be.octo.avenger.db.dao.impl;
+package com.finna.be.octo.avenger.core.db.dao.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

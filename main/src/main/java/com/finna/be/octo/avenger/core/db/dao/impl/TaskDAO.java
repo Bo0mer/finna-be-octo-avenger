@@ -1,4 +1,4 @@
-package com.finna.be.octo.avenger.db.dao.impl;
+package com.finna.be.octo.avenger.core.db.dao.impl;
 
 import com.finna.be.octo.avenger.core.db.dao.ITaskDAO;
 import com.finna.be.octo.avenger.core.db.model.DBTask;
