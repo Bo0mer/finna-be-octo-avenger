@@ -28,11 +28,15 @@ public class DBTask  {
 	@Column(name = "DESCRIPTION")
 	private String description;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "PROJECT_ID")
+	private DBProject project;
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "USER_ID")
 	private DBUser user;
 	
-	@OneToMany(mappedBy = "task", cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy = "task", cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "TASK_ID", referencedColumnName = "ID")
 	private List<DBComment> comments;
 
@@ -62,6 +66,14 @@ public class DBTask  {
 	
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public DBProject getProject() {
+		return project;
+	}
+	
+	public void setProject(DBProject project) {
+		this.project = project;
 	}
 
 	public DBUser getUser() {

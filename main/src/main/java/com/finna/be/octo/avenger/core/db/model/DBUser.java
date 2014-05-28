@@ -20,8 +20,11 @@ public class DBUser {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
 	private long id;
 	
-	@Column(name = "USERNAME")
+	@Column(name = "USER_NAME")
 	private String username;
+	
+	@Column(name = "USER_PASS")
+	private String password;
 	
 	@Column(name = "FULL_NAME")
 	private String fullName;
@@ -54,6 +57,14 @@ public class DBUser {
 	
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 
 	public String getFullName() {
