@@ -30,6 +30,18 @@ public class DBProject {
 		tasks = new ArrayList<DBTask>();
 	}
 	
+	public long getId() {
+		return id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public List<DBTask> getTasks() {
 		return tasks;
 	}

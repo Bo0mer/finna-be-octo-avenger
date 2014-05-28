@@ -6,6 +6,6 @@ public interface ITaskDAO {
 	
 	public long createTask(DBTask task);
 	
-	public DBTask findById(long id);
+	public DBTask getById(long id);
 	
 }

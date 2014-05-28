@@ -4,8 +4,8 @@ import com.finna.be.octo.avenger.core.db.model.DBUser;
 
 public interface IUserDAO {
 	
-	public long addUser(DBUser user); 
+	public long createUser(DBUser user); 
 	
-	public DBUser getUserById(long id);
+	public DBUser getById(long id);
 
 }
