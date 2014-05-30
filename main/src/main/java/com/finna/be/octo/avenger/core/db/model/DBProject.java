@@ -20,7 +20,7 @@ public class DBProject {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROJECTS_SEQ")
 	private long id;
 	
-	@Column(name = "NAME")
+	@Column(name = "NAME", unique = true)
 	private String name;
 	
 	@OneToMany(mappedBy = "project", cascade=CascadeType.PERSIST)

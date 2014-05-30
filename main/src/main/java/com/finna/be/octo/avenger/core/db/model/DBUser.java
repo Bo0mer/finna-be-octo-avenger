@@ -20,13 +20,13 @@ public class DBUser {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
 	private long id;
 	
-	@Column(name = "USER_NAME")
+	@Column(name = "USER_NAME", unique = true)
 	private String username;
 	
 	@Column(name = "USER_PASS")
 	private String password;
 	
-	@Column(name = "FULL_NAME")
+	@Column(name = "FULL_NAME", unique = true)
 	private String fullName;
 	
 	@Column(name = "EMAIL")
