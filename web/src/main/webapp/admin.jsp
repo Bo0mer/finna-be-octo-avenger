@@ -1,4 +1,4 @@
-
+<%@ page import="com.finna.be.octo.avenger.core.db.dao.impl.UserDAO"%>
 <%@ page import="com.finna.be.octo.avenger.core.db.model.DBUser"%>
 <%@
  page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -12,25 +12,8 @@
 </head>
 <body>
 
-	<%
-	if("POST".equals(request.getMethod())){
-		String username =  request.getParameter("username");
-		//Validations
-		  if (!username.matches("[a-zA-Z0-9]*")) {
-			 out.println("User not added. Only letters are allowed!");
-		  }
-		  String password = request.getParameter("password");
-		  DBUser user = new DBUser();
-		  boolean isAdded = DBUser.addUser(name, pass);
-		  DBUser.grantUserRole(name, "student");
-		  if (isAdded) {
-			 out.println("User added successfully");
-		  } else {
-			
-%>
 
-
-	<form method="post">
+	<form method="post" action="CreateUserServlet">
 		Username: <input type="text" name="username"> <br />
 		Password: <input type="password" name="password"> <br />
 		Name: <input type="text" name="name"> <br /> E-mail: <input

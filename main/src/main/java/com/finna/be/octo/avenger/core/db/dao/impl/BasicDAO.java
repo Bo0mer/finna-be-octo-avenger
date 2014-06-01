@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
 
 import com.finna.be.octo.avenger.core.db.connection.DBConfiguration;
+import com.finna.be.octo.avenger.dao.exceptions.DAOException;
 
 public abstract class BasicDAO<T> {
 	
@@ -23,7 +24,7 @@ public abstract class BasicDAO<T> {
 		return result;
 	}
 	
-	protected void persistObject(T object) {
+	protected void persistObject(T object) throws DAOException {
 		final EntityManager entityManager = getEntityManager();
 		final EntityTransaction transaction = entityManager.getTransaction();
 		try {
@@ -32,10 +33,11 @@ public abstract class BasicDAO<T> {
 		transaction.commit();
 		} catch (RollbackException e) {
 			e.printStackTrace();
-		} finally {
 			if (transaction.isActive()) {
 				transaction.rollback();
 			}
+			throw new DAOException("Error persisting object");
+		} finally {
 			if (entityManager != null) {
 				entityManager.close();
 			}

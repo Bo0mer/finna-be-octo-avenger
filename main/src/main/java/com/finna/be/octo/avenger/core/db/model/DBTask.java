@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.finna.be.octo.avenger.core.db.dao.impl.TaskStatus;
 
@@ -32,6 +34,7 @@ public class DBTask  {
 	private String description;
 	
 	@Column(name = "DUE_DATE")
+	@Temporal(TemporalType.DATE)
 	private Date dueDate;
 	
 	@Column(name = "STATUS")
