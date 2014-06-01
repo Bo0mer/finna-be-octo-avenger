@@ -1,6 +1,7 @@
 package com.finna.be.octo.avenger.core.db.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
+import com.finna.be.octo.avenger.core.db.dao.impl.TaskStatus;
 
 @Entity(name = "TASKS")
 @SequenceGenerator(name="TASKS_SEQ", initialValue=1, allocationSize=100)
@@ -27,6 +30,12 @@ public class DBTask  {
 	
 	@Column(name = "DESCRIPTION")
 	private String description;
+	
+	@Column(name = "DUE_DATE")
+	private Date dueDate;
+	
+	@Column(name = "STATUS")
+	private TaskStatus status;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "PROJECT_ID")
@@ -66,6 +75,22 @@ public class DBTask  {
 	
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public Date getDueDate() {
+		return dueDate;
+	}
+	
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
+	
+	public TaskStatus getStatus() {
+		return status;
+	}
+	
+	public void setStatus(TaskStatus status) {
+		this.status = status;
 	}
 	
 	public DBProject getProject() {
