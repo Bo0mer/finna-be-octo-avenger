@@ -26,7 +26,7 @@ public class DBUser {
 	@Column(name = "USER_PASS")
 	private String password;
 	
-	@Column(name = "FULL_NAME", unique = true)
+	@Column(name = "FULL_NAME")
 	private String fullName;
 	
 	@Column(name = "EMAIL")
