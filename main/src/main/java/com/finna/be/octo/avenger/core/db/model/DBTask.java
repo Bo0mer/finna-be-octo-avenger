@@ -25,7 +25,7 @@ public class DBTask  {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TASKS_SEQ")
 	private long id;
 	
-	@Column(name = "NAME")
+	@Column(name = "NAME", unique = true)
 	private String name;
 	
 	@Column(name = "DESCRIPTION")
