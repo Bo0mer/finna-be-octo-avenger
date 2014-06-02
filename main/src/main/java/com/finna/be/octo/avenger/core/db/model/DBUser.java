@@ -32,10 +32,10 @@ public class DBUser {
 	@Column(name = "EMAIL")
 	private String email;
 	
-	@OneToMany(mappedBy = "author", cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy = "author", cascade=CascadeType.MERGE)
 	private List<DBComment> comments;
 	
-	@OneToMany(mappedBy = "user", cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy = "user", cascade=CascadeType.MERGE)
 	private List<DBTask> tasks;
 	
 	public DBUser() {

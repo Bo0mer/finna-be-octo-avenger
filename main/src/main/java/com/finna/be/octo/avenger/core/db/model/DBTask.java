@@ -40,11 +40,11 @@ public class DBTask  {
 	@Column(name = "STATUS")
 	private TaskStatus status;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "PROJECT_ID")
 	private DBProject project;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "USER_ID")
 	private DBUser user;
 	

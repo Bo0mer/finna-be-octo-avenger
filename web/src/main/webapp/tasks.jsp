@@ -16,8 +16,12 @@
 		long projectId = Long.valueOf(request.getParameter("projectId"));
 		IProjectDAO projectDAO = new ProjectDAO();
 		DBProject project = projectDAO.getById(projectId);
-		for (DBTask task : project.getTasks()) {
-			out.print(task.getName() + " assigned to " + task.getUser().getFullName() + "<br/>");
+		if (project.getTasks() == null) {
+			out.print("getTasks() returns null");
+		} else {
+			for (DBTask task : project.getTasks()) {
+				out.print(task.getName() + " assigned to " + task.getUser().getFullName() + "<br/>");
+			}
 		}
 	} catch (NumberFormatException e) {
 		out.print("Wrong project Id: " + request.getParameter("projectId"));

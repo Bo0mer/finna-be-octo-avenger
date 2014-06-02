@@ -23,7 +23,7 @@ public class DBProject {
 	@Column(name = "NAME", unique = true)
 	private String name;
 	
-	@OneToMany(mappedBy = "project", cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy = "project", cascade=CascadeType.MERGE)
 	List<DBTask> tasks;
 	
 	public DBProject() {
