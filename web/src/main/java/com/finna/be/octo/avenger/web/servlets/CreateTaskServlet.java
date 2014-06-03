@@ -55,7 +55,7 @@ public class CreateTaskServlet extends HttpServlet {
 		DBTask task = new DBTask();
 		task.setName(name);
 		task.setDescription(description);
-		task.setDueDate(new Date());
+		//task.setDueDate(new Date());
 		task.setUser(getUser(userId));
 		task.setProject(getProject(projectId));
 		

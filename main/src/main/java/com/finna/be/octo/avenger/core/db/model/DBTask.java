@@ -1,7 +1,6 @@
 package com.finna.be.octo.avenger.core.db.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,8 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.finna.be.octo.avenger.core.db.dao.impl.TaskStatus;
 
@@ -33,9 +30,9 @@ public class DBTask  {
 	@Column(name = "DESCRIPTION")
 	private String description;
 	
-	@Column(name = "DUE_DATE")
-	@Temporal(TemporalType.DATE)
-	private Date dueDate;
+//	@Column(name = "DUE_DATE")
+//	@Temporal(TemporalType.DATE)
+//	private Date dueDate;
 	
 	@Column(name = "STATUS")
 	private TaskStatus status;
@@ -80,13 +77,13 @@ public class DBTask  {
 		this.description = description;
 	}
 	
-	public Date getDueDate() {
-		return dueDate;
-	}
-	
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
-	}
+//	public Date getDueDate() {
+//		return dueDate;
+//	}
+//	
+//	public void setDueDate(Date dueDate) {
+//		this.dueDate = dueDate;
+//	}
 	
 	public TaskStatus getStatus() {
 		return status;

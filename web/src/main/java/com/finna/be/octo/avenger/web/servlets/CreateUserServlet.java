@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.finna.be.octo.avenger.core.db.dao.impl.RoleDAO;
 import com.finna.be.octo.avenger.core.db.dao.impl.UserDAO;
+import com.finna.be.octo.avenger.core.db.model.DBRole;
 import com.finna.be.octo.avenger.core.db.model.DBUser;
 import com.finna.be.octo.avenger.dao.exceptions.DAOException;
 
@@ -28,16 +30,28 @@ public class CreateUserServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		UserDAO userDAO = new UserDAO();
+		RoleDAO roleDAO = new RoleDAO();
+		
+		DBUser user = createUser(request);
+		DBRole role = new DBRole();
+		role.setRoleName("user");
+		role.setUserName(user.getUsername());
+		
+		
 		try {
-		userDAO.createUser(createUser(request));
+			userDAO.createUser(user);
+			roleDAO.createRole(role);
 		} catch (DAOException e) {
+			e.printStackTrace();
 			// TODO: redirect to error page.
 			response.sendRedirect("error.jsp");
+			return;
 		}
-		
+				
 		response.sendRedirect("projects.jsp");
+		return;
 	}
-	
+
 	private DBUser createUser(HttpServletRequest request) {
 		// TODO: Validations
 		String username = request.getParameter("username");
