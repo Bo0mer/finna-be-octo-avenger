@@ -37,11 +37,11 @@ public class DBTask  {
 	@Column(name = "STATUS")
 	private TaskStatus status;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID")
 	private DBProject project;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne
 	@JoinColumn(name = "USER_ID")
 	private DBUser user;
 	
@@ -99,6 +99,7 @@ public class DBTask  {
 	
 	public void setProject(DBProject project) {
 		this.project = project;
+		project.addTask(this);
 	}
 
 	public DBUser getUser() {
