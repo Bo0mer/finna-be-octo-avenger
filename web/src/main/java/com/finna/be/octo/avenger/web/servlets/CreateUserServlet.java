@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.finna.be.octo.avenger.core.db.dao.impl.RoleDAO;
 import com.finna.be.octo.avenger.core.db.dao.impl.UserDAO;
+import com.finna.be.octo.avenger.core.db.dao.impl.UserRole;
 import com.finna.be.octo.avenger.core.db.model.DBRole;
 import com.finna.be.octo.avenger.core.db.model.DBUser;
 import com.finna.be.octo.avenger.dao.exceptions.DAOException;
@@ -34,7 +35,7 @@ public class CreateUserServlet extends HttpServlet {
 		
 		DBUser user = createUser(request);
 		DBRole role = new DBRole();
-		role.setRoleName("user");
+		role.setRoleName(UserRole.USER);
 		role.setUserName(user.getUsername());
 		
 		
