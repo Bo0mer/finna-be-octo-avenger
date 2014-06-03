@@ -19,5 +19,10 @@
 			<version>2.5.0-RC1</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.0.0.RELEASE</version>
+		</dependency>
 	</dependencies>
 </project>
